@@ -147,7 +147,7 @@ function toggleGotbOverlay(){
     var width = $(window).width();
     $('#gotbBox').css('height', height);
     $('#gotbBox').css('width', width);
-    $('#gotbBox .pic').css('height', height/2);
+    $('#gotbBox .pic').css('width', width/2);
     $("html, body").scrollTop($('#gotbBox').offset().top);
   $("body").css("overflow", "hidden");
   }
@@ -163,7 +163,7 @@ function toggleTgbOverlay(){
     var width = $(window).width();
     $('#tgbBox').css('height', height);
     $('#tgbBox').css('width', width);
-    $('#tgbBox .pic').css('height', height/2);
+    $('#tgbBox .pic').css('width', width/2);
     $("html, body").scrollTop($('#tgbBox').offset().top);
   $("body").css("overflow", "hidden");
   }
@@ -178,7 +178,7 @@ function toggleBbbsOverlay(){
     var height = $(window).height();
     var width = $(window).width();
     $('#bbbsBox').css('height', height);
-    $('#bbbsBox').css('width', width);
+    $('#bbbsBox').css('width', width/2);
     $("html, body").scrollTop($('#bbbsBox').offset().top);
   $("body").css("overflow", "hidden");
   }
@@ -194,7 +194,7 @@ function toggleCommOverlay(){
     var width = $(window).width();
     $('#commBox').css('height', height);
     $('#commBox').css('width', width);
-    $('#commBox .pic').css('height', height/2);
+    $('#commBox .pic').css('width', width/2);
     $("html, body").scrollTop($('#commBox').offset().top);
   $("body").css("overflow", "hidden");
   }
@@ -210,7 +210,7 @@ function toggleRflOverlay(){
     var width = $(window).width();
     $('#rflBox').css('height', height);
     $('#rflBox').css('width', width);
-    $('#rflBox .pic').css('height', height/2);
+    $('#rflBox .pic').css('width', width/2);
     $("html, body").scrollTop($('#rflBox').offset().top);
   $("body").css("overflow", "hidden");
   }
@@ -226,7 +226,7 @@ function toggleMtwOverlay(){
     var width = $(window).width();
     $('#mtwBox').css('height', height);
     $('#mtwBox').css('width', width);
-    $('#mtwBox .pic').css('height', height/2);
+    $('#mtwBox .pic').css('width', width/2);
     $("html, body").scrollTop($('#mtwBox').offset().top);
   $("body").css("overflow", "hidden");
   }
@@ -242,7 +242,7 @@ function toggleMtwOverlay(){
     var width = $(window).width();
     $('#mtwBox').css('height', height);
     $('#mtwBox').css('width', width);
-    $('#mtwBox .pic').css('height', height/2);
+    $('#mtwBox .pic').css('width', width/2);
     $("html, body").scrollTop($('#mtwBox').offset().top);
   $("body").css("overflow", "hidden");
   }
