@@ -33,7 +33,7 @@ $(window).resize(function() {
    var currheight = 300*percentage;
    var h1font = 30*percentage+3;
    var h4font = 18*percentage+3;
-   var h5font = 16*percentage+3;
+   h5font = 16*percentage+3;
    var pfont = 10*percentage+3;
    $('.box').css('height',currheight+'px');
    $('.box').css('width',currheight+'px');
