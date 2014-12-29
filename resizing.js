@@ -49,17 +49,39 @@ $(window).resize(function() {
 
 //Remove Logo On Scroll//
 $(document).ready(function() {
-  $(window).scroll(function() {
-   var height = $('.cycle').height()-60,
-       scroll = $(this).scrollTop();
-   if (scroll > (height)){
-       $(".logo").css("visibility","hidden");
-       $(".nav").css("margin-top","-90px");
-   } else {
-       $(".logo").css("visibility","visible");
-       $(".nav").css("margin-top","0px");
-   }
+  var isMobile = {
+      Android: function() {
+          return navigator.userAgent.match(/Android/i);
+      },
+      BlackBerry: function() {
+          return navigator.userAgent.match(/BlackBerry/i);
+      },
+      iOS: function() {
+          return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      Opera: function() {
+          return navigator.userAgent.match(/Opera Mini/i);
+      },
+      Windows: function() {
+          return navigator.userAgent.match(/IEMobile/i);
+      },
+      any: function() {
+          return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+      }
+  };
+  if (!isMobile) {
+    $(window).scroll(function() {
+     var height = $('.cycle').height()-60,
+         scroll = $(this).scrollTop();
+     if (scroll > (height)){
+         $(".logo").css("visibility","hidden");
+         $(".nav").css("margin-top","-90px");
+     } else {
+         $(".logo").css("visibility","visible");
+         $(".nav").css("margin-top","0px");
+     }
 });
+  }
 });
 
 
