@@ -178,7 +178,7 @@ function toggleBbbsOverlay(){
     var height = $(window).height();
     var width = $(window).width();
     $('#bbbsBox').css('height', height);
-    $('#bbbsBox').css('width', width/2);
+    $('#bbbsBox').css('width', width);
     $("html, body").scrollTop($('#bbbsBox').offset().top);
   $("body").css("overflow", "hidden");
   }
