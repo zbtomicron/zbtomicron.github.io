@@ -381,7 +381,7 @@ function togText3() {
   $('#t5').css('text-decoration', 'none');
   $('#t6').css('text-decoration', 'none');
   $('#t3').css('text-decoration', 'underline');
-  $('#toggleText').html("<h5>Jason Brillon: A'16</h5><h5>Steven Carbone: A'15</h5><h5>Daniel Diaz: A'15</h5><h5>Rayn Riel: A'15</h5><h5>Mitul Rathod: A'16</h5><h5>Justin Silva: A'16</h5><h5>Ray Xiao: A'15</br></br></br></br></h5>");
+  $('#toggleText').html("<h5>Jason Brillon: A'16</h5><h5>Vincent Carbone: A'15</h5><h5>Daniel Diaz: A'15</h5><h5>Rayn Riel: A'15</h5><h5>Mitul Rathod: A'16</h5><h5>Justin Silva: A'16</h5><h5>Ray Xiao: A'15</br></br></br></br></h5>");
   $('#toggleText h5').css('font-size', h5font+'px');
 }
 
