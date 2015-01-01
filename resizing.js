@@ -414,6 +414,6 @@ function togText6() {
   $('#t4').css('text-decoration', 'none');
   $('#t5').css('text-decoration', 'none');
   $('#t6').css('text-decoration', 'underline');
-  $('#toggleText').html("<h5>Arlo Clarke: E'17</h5><h5>Joshua Insler: A'17</h5><h5>James Lacitignola: A'17</h5><h5>Kevin Meli: E'17</h5><h5>Benjamin Shipley: A'17</h5><h5>Trevor Vassallo: E'16</br></br></br></br></br></br></h5>");
+  $('#toggleText').html("<h5>Arlo Clarke: E'17</h5><h5>Joshua Insler: A'17</h5><h5>James Lacitignola: A'17</h5><h5>Kevin Meli: A'17</h5><h5>Benjamin Shipley: A'17</h5><h5>Trevor Vassallo: E'16</br></br></br></br></br></br></h5>");
   $('#toggleText h5').css('font-size', h5font+'px');
 }
