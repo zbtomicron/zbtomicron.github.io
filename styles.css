@@ -162,7 +162,7 @@ a, a:visited {
 	background-color: white;
 }
 
-#gotbBox, #tgbBox, #bbbsBox, #commBox, #rflBox, #mtwBox {
+#Box1, #Box2, #Box3, #Box4, #Box5, #Box6 {
 	display: none;
 	position: absolute;
 	z-index: 9999;
@@ -231,7 +231,7 @@ p {
 	font-size: 10px;
 }
 
-#leadership {
+#t2Text, #t3Text, #t4Text, #t5Text, #t6Text, #leadership {
 	display: none;
 }
 

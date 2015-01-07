@@ -1,6 +1,4 @@
-//Scale cover photo and everything else//
-var h5font;
-
+//Scale Everything On Load//
 $(document).ready(function() {
   $('#t1').css('text-decoration','underline');
    var windowHeight = $(window).height();
@@ -11,7 +9,7 @@ $(document).ready(function() {
    var currheight = 300*percentage;
    var h1font = 30*percentage+3;
    var h4font = 18*percentage+3;
-   h5font = 17*percentage+3;
+   var h5font = 17*percentage+3;
    var pfont = 10*percentage+3;
    $('.box').css('height',currheight+'px');
    $('.box').css('width',currheight+'px');
@@ -23,7 +21,7 @@ $(document).ready(function() {
    $('p').css('font-size', pfont+'px');
 });
 
-// Change the cover photo and everything else//
+//Scale Everything on Resize//
 $(window).resize(function() {
    var windowHeight = $(window).height();
    var $imageWrapper = $('.resizable');
@@ -33,7 +31,7 @@ $(window).resize(function() {
    var currheight = 300*percentage;
    var h1font = 30*percentage+3;
    var h4font = 18*percentage+3;
-   h5font = 16*percentage+3;
+   var h5font = 16*percentage+3;
    var pfont = 10*percentage+3;
    $('.box').css('height',currheight+'px');
    $('.box').css('width',currheight+'px');
@@ -84,7 +82,7 @@ $(document).ready(function() {
          $(".logo").css("visibility","visible");
          $(".nav").css("margin-top","0px");
      }
-});
+    });
   }
 });
 
@@ -120,13 +118,14 @@ igs[0] = "images/rfl3.png";
 igs[1] = "images/rfl4.png";
 igs[2] = "images/rfl2.png";
 
+//Slideshow Function//
 function displayNextImage() {
   if($(".cycle").is(":visible")) {
       x = (x === images.length - 1) ? 0 : x + 1;
     $(".cycle").fadeOut("1000", function() {
        $(".cycle").css("background-image", "url("+images[x]+")").fadeIn(1000);
     });
-}
+  }
   y = (y === imgs.length - 1) ? 0 : y + 1;
   $("#gotbBox .pic").fadeOut("1000", function() {
     $(this).attr("src", imgs[y]).fadeIn(1000);
@@ -163,123 +162,41 @@ $(function() {
 });
 
 //Toggling Boxes//
-function toggleGotbOverlay(){
-  if ($('#gotbBox').css('display')=="block") {
-    $('#gotbBox').css('display', 'none');
+function toggleBox(e) {
+  if ($(e).css('display')=="block") {
+    $(e).css('display', 'none');
     $("body").css("overflow", "visible");
   } else {
-    $('#gotbBox').css('display', 'block');
+    $(e).css('display', 'block');
     var height = $(window).height();
     var width = $(window).width();
-    $('#gotbBox').css('height', height);
-    $('#gotbBox').css('width', width);
-    $('#gotbBox .pic').css('width', width/2);
-    $("html, body").scrollTop($('#gotbBox').offset().top);
+    $(e).css('height', height);
+    $(e).css('width', width);
+    $(e+' .pic').css('width', width/2);
+    $("html, body").scrollTop($(e).offset().top);
   $("body").css("overflow", "hidden");
   }
 }
 
-function toggleTgbOverlay(){
-  if ($('#tgbBox').css('display')=="block") {
-    $('#tgbBox').css('display', 'none');
-    $("body").css("overflow", "visible");
-  } else {
-    $('#tgbBox').css('display', 'block');
-    var height = $(window).height();
-    var width = $(window).width();
-    $('#tgbBox').css('height', height);
-    $('#tgbBox').css('width', width);
-    $('#tgbBox .pic').css('width', width/2);
-    $("html, body").scrollTop($('#tgbBox').offset().top);
-  $("body").css("overflow", "hidden");
+//Toggling Brother Text//
+function togText(e) {
+  for (var i=1; i<7;i++) {
+    if ('#t'+i == e) {
+      $(e).css('text-decoration', 'underline');
+      $(e+'Text').css('display','block');
+    } else {
+      $('#t'+i).css('text-decoration', 'none');
+      $('#t'+i+'Text').css('display','none');
+    }
   }
 }
 
-function toggleBbbsOverlay(){
-  if ($('#bbbsBox').css('display')=="block") {
-    $('#bbbsBox').css('display', 'none');
-    $("body").css("overflow", "visible");
-  } else {
-    $('#bbbsBox').css('display', 'block');
-    var height = $(window).height();
-    var width = $(window).width();
-    $('#bbbsBox').css('height', height);
-    $('#bbbsBox').css('width', width);
-    $("html, body").scrollTop($('#bbbsBox').offset().top);
-  $("body").css("overflow", "hidden");
-  }
-}
-
-function toggleCommOverlay(){
-  if ($('#commBox').css('display')=="block") {
-    $('#commBox').css('display', 'none');
-    $("body").css("overflow", "visible");
-  } else {
-    $('#commBox').css('display', 'block');
-    var height = $(window).height();
-    var width = $(window).width();
-    $('#commBox').css('height', height);
-    $('#commBox').css('width', width);
-    $('#commBox .pic').css('width', width/2);
-    $("html, body").scrollTop($('#commBox').offset().top);
-  $("body").css("overflow", "hidden");
-  }
-}
-
-function toggleRflOverlay(){
-  if ($('#rflBox').css('display')=="block") {
-    $('#rflBox').css('display', 'none');
-    $("body").css("overflow", "visible");
-  } else {
-    $('#rflBox').css('display', 'block');
-    var height = $(window).height();
-    var width = $(window).width();
-    $('#rflBox').css('height', height);
-    $('#rflBox').css('width', width);
-    $('#rflBox .pic').css('width', width/2);
-    $("html, body").scrollTop($('#rflBox').offset().top);
-  $("body").css("overflow", "hidden");
-  }
-}
-
-function toggleMtwOverlay(){
-  if ($('#mtwBox').css('display')=="block") {
-    $('#mtwBox').css('display', 'none');
-    $("body").css("overflow", "visible");
-  } else {
-    $('#mtwBox').css('display', 'block');
-    var height = $(window).height();
-    var width = $(window).width();
-    $('#mtwBox').css('height', height);
-    $('#mtwBox').css('width', width);
-    $('#mtwBox .pic').css('width', width/2);
-    $("html, body").scrollTop($('#mtwBox').offset().top);
-  $("body").css("overflow", "hidden");
-  }
-}
-
-function toggleMtwOverlay(){
-  if ($('#mtwBox').css('display')=="block") {
-    $('#mtwBox').css('display', 'none');
-    $("body").css("overflow", "visible");
-  } else {
-    $('#mtwBox').css('display', 'block');
-    var height = $(window).height();
-    var width = $(window).width();
-    $('#mtwBox').css('height', height);
-    $('#mtwBox').css('width', width);
-    $('#mtwBox .pic').css('width', width/2);
-    $("html, body").scrollTop($('#mtwBox').offset().top);
-  $("body").css("overflow", "hidden");
-  }
-}
-
-//underline scroll//
+//Underline Scroll//
   $(window).scroll(function() {
 
-   var hT = $('#fill1').offset().top,
-       wS = $(this).scrollTop();
-   if (wS > hT-20){
+   var height = $('#fill1').offset().top,
+       scroll = $(this).scrollTop();
+   if (scroll > height-20){
        $(".n1").css("text-decoration","underline");    
        $(".n1").css("color","#ffd700");   
 } else {
@@ -287,9 +204,9 @@ function toggleMtwOverlay(){
        $(".n1").css("color","#000080");
    }
 
-       hT = $('#fill2').offset().top,
-       wS = $(this).scrollTop();
-   if (wS > hT-20){
+       height = $('#fill2').offset().top,
+       scroll = $(this).scrollTop();
+   if (scroll > height-20){
        $(".n2").css("text-decoration","underline");    
        $(".n2").css("color","#ffd700");
        $(".n1").css("text-decoration","none");    
@@ -299,9 +216,9 @@ function toggleMtwOverlay(){
        $(".n2").css("color","#000080");
    }
 
-       hT = $('#fill3').offset().top,
-       wS = $(this).scrollTop();
-   if (wS > hT-20) {
+       height = $('#fill3').offset().top,
+       scroll = $(this).scrollTop();
+   if (scroll > height-20) {
        $(".n3").css("text-decoration","underline");    
        $(".n3").css("color","#ffd700");
        $(".n1").css("text-decoration","none");    
@@ -313,9 +230,9 @@ function toggleMtwOverlay(){
        $(".n3").css("color","#000080");
    }
 
-       hT = $('#fill4').offset().top,
-       wS = $(this).scrollTop();
-   if (wS > hT-20) {
+       height = $('#fill4').offset().top,
+       scroll = $(this).scrollTop();
+   if (scroll > height-20) {
        $(".n4").css("text-decoration","underline");    
        $(".n4").css("color","#ffd700");
        $(".n1").css("text-decoration","none");    
@@ -328,9 +245,9 @@ function toggleMtwOverlay(){
        $(".n4").css("text-decoration","none");
        $(".n4").css("color","#000080");
    }
-       hT = $('#fill5').offset().top,
-       wS = $(this).scrollTop();
-   if (wS > hT-20) {
+       height = $('#fill5').offset().top,
+       scroll = $(this).scrollTop();
+   if (scroll > height-20) {
        $(".n5").css("text-decoration","underline");    
        $(".n5").css("color","#ffd700");
        $(".n1").css("text-decoration","none");    
@@ -347,73 +264,3 @@ function toggleMtwOverlay(){
    }
 
 });
-
-
-
-// Toggle Text //
-function togText1() {
-  $('#t1').css('text-decoration', 'underline');
-  $('#t2').css('text-decoration', 'none');
-  $('#t3').css('text-decoration', 'none');
-  $('#t4').css('text-decoration', 'none');
-  $('#t5').css('text-decoration', 'none');
-  $('#t6').css('text-decoration', 'none');
-  $('#toggleText').html("<h5>President: Matthew Felsenfeld</h5><h5>Vice President: Joseph Cirone</h5><h5>Brotherhood Development Director: Ryan Hastings-Echo</h5><h5>Secretary: Jacob Mittleman</h5><h5>Treasurer: Jonathan Sirota</br></br></br></br></br></br></br></h5>");
-  $('#toggleText h5').css('font-size', h5font+'px');
-}
-
-
-function togText2() {
-  $('#t1').css('text-decoration', 'none');
-  $('#t3').css('text-decoration', 'none');
-  $('#t4').css('text-decoration', 'none');
-  $('#t5').css('text-decoration', 'none');
-  $('#t6').css('text-decoration', 'none');
-  $('#t2').css('text-decoration', 'underline');
-  $('#toggleText').html("<h5>Andrew Carp: E'15</h5><h5>Zachary Fialkow: A'15</h5><h5>Daniel Griffin: E'15</h5><h5>Jonathan Wolf: A'15</br></br></br></br></br></br></br></br></br></h5>");
-  $('#toggleText h5').css('font-size', h5font+'px');
-}
-
-function togText3() {
-  $('#t1').css('text-decoration', 'none');
-  $('#t2').css('text-decoration', 'none');
-  $('#t4').css('text-decoration', 'none');
-  $('#t5').css('text-decoration', 'none');
-  $('#t6').css('text-decoration', 'none');
-  $('#t3').css('text-decoration', 'underline');
-  $('#toggleText').html("<h5>Jason Brillon: A'16</h5><h5>Vincent Carbone: A'15</h5><h5>Daniel Diaz: A'15</h5><h5>Rayn Riel: A'15</h5><h5>Mitul Rathod: A'16</h5><h5>Justin Silva: A'16</h5><h5>Ray Xiao: A'15</br></br></br></br></h5>");
-  $('#toggleText h5').css('font-size', h5font+'px');
-}
-
-function togText4() {
-  $('#t1').css('text-decoration', 'none');
-  $('#t2').css('text-decoration', 'none');
-  $('#t3').css('text-decoration', 'none');
-  $('#t5').css('text-decoration', 'none');
-  $('#t6').css('text-decoration', 'none');
-  $('#t4').css('text-decoration', 'underline');
-  $('#toggleText').html("<h5>John Taylor Armstrong: A'15</h5><h5>Bryan Dumond: A'15</h5><h5>Christopher Gambro: A'15</h5><h5>David Hernandez: E'15</h5><h5>Bob Liu: A'15</h5><h5>Nikhil Shinday: E'16</br></br></br></br></br></br></h5>");
-  $('#toggleText h5').css('font-size', h5font+'px');
-}
-
-function togText5() {
-  $('#t1').css('text-decoration', 'none');
-  $('#t2').css('text-decoration', 'none');
-  $('#t3').css('text-decoration', 'none');
-  $('#t4').css('text-decoration', 'none');
-  $('#t6').css('text-decoration', 'none');
-  $('#t5').css('text-decoration', 'underline');
-  $('#toggleText').html("<h5>David Bernstein: E'17</h5><h5>Joseph Cirone: E'17</h5><h5>Matthew Felsenfeld: A'17</h5><h5>Morgan Gellert: E'17</h5><h5>Ryan Hastings-Echo: A'17</h5><h5>Ryan Havens: A'17</h5><h5>Justin Lee: A'17</h5><h5>Matthew Mazzarella: A'17</h5><h5>Jacob Mittleman: A'17</h5><h5> Nikhil Nandagopal: A'17</h5><h5>Andrew Narahara: E'17</h5><h5>Benjamin Pall: E'17</h5><h5>Jonathan Sirota: A'17</h5>");
-  $('#toggleText h5').css('font-size', h5font+'px');
-}
-
-function togText6() {
-  $('#t1').css('text-decoration', 'none');
-  $('#t2').css('text-decoration', 'none');
-  $('#t3').css('text-decoration', 'none');
-  $('#t4').css('text-decoration', 'none');
-  $('#t5').css('text-decoration', 'none');
-  $('#t6').css('text-decoration', 'underline');
-  $('#toggleText').html("<h5>Arlo Clarke: E'17</h5><h5>Joshua Insler: A'17</h5><h5>James Lacitignola: A'17</h5><h5>Kevin Meli: A'17</h5><h5>Benjamin Shipley: A'17</h5><h5>Trevor Vassallo: E'16</br></br></br></br></br></br></h5>");
-  $('#toggleText h5').css('font-size', h5font+'px');
-}
