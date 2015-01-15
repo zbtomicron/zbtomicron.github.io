@@ -1,4 +1,4 @@
-//Scale Everything On Load//
+//SCALE ON LOAD//
 $(document).ready(function() {
   $('#t1').css('text-decoration','underline');
    var windowHeight = $(window).height();
@@ -21,7 +21,9 @@ $(document).ready(function() {
    $('p').css('font-size', pfont+'px');
 });
 
-//Scale Everything on Resize//
+
+
+//SCALE ON RESIZE//
 $(window).resize(function() {
    var windowHeight = $(window).height();
    var $imageWrapper = $('.resizable');
@@ -45,7 +47,7 @@ $(window).resize(function() {
 
 
 
-//Remove Logo On Scroll//
+//REMOVE LOGO ON SCROLL//
 $(document).ready(function() {
   var desktop = true;
   var isMobile = {
@@ -71,6 +73,7 @@ $(document).ready(function() {
   if (isMobile.any()) {
     desktop = false;
   }
+  //only for desktop//
   if (desktop) {
     $(window).scroll(function() {
      var height = $('.cycle').height()-60,
@@ -88,6 +91,7 @@ $(document).ready(function() {
 
 
 
+//SLIDESHOWS//
 
 //Homepage Slideshow//
 var images = [], x = -1;
@@ -95,7 +99,6 @@ images[0] = "images/gotb.png";
 images[1] = "images/formal.png";
 images[2] = "images/gotb2.png";
 images[3] = "images/brothers.png";
-
 //GOTB Slideshow//
 var imgs = [], x=-1, y=-1, z=-1, a=-1, b=-1;
 imgs[0] = "images/gotb.png";
@@ -104,20 +107,17 @@ imgs[2] = "images/gotb3.png";
 imgs[3] = "images/gotb4.png";
 imgs[4] = "images/gotb5.png";
 imgs[5] = "images/gotb6.png";
-
 //TGB Slideshow//
 var ims = [];
 ims[0] = "images/tgb3.png";
 ims[1] = "images/tgb4.png";
 ims[2] = "images/tgb5.png";
 ims[3] = "images/tgb2.png";
-
 //RFL Slideshow//
 var igs = [];
 igs[0] = "images/rfl3.png";
 igs[1] = "images/rfl4.png";
 igs[2] = "images/rfl2.png";
-
 //Slideshow Function//
 function displayNextImage() {
   if($(".cycle").is(":visible")) {
@@ -144,13 +144,14 @@ function displayNextImage() {
     $(this).attr("src", igs[a]).fadeIn(1000);
   });
 }
-
+//Initializing Function//
 $(document).ready(function startTimer() {
       setInterval(displayNextImage, 8000);
 });
 
 
-//Pretty Scroll//
+
+//EASING SCROLL//
 $(function() {
     $('a.page-scroll').bind('click', function(event) {
         var $anchor = $(this);
@@ -161,7 +162,9 @@ $(function() {
     });
 });
 
-//Toggling Boxes//
+
+
+//TOGGLING PHILANTHROPY//
 function toggleBox(e) {
   if ($(e).css('display')=="block") {
     $(e).css('display', 'none');
@@ -178,7 +181,9 @@ function toggleBox(e) {
   }
 }
 
-//Toggling Brother Text//
+
+
+//TOGGLING BROTHERS//
 function togText(e) {
   for (var i=1; i<7;i++) {
     if ('#t'+i == e) {
@@ -191,7 +196,9 @@ function togText(e) {
   }
 }
 
-//Underline Scroll//
+
+
+//ACTIVE-BASED SCROLL//
   $(window).scroll(function() {
 
    var height = $('#fill1').offset().top,
@@ -262,5 +269,4 @@ function togText(e) {
        $(".n5").css("text-decoration","none");
        $(".n5").css("color","#000080");
    }
-
 });
