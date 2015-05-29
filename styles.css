@@ -33,8 +33,9 @@ a:hover {
 	margin-bottom: 10px;
 }
 
-.comm, .mtw, .bbbs, .rfl, .gotb, .tgb {
+.comm, .mtw, .bbbs, .rfl, .gotb, .tgb, .comm:hover, .mtw:hover, .bbbs:hover, .rfl:hover, .gotb:hover, .tgb:hover {
 	margin-right: 10px;
+	transition: background-image .3s ease;
 }
 
 .gotb {
@@ -108,6 +109,27 @@ a:hover {
 	height: 100px;
 	margin-left: -125px;
 }
+
+.nologo {
+	margin-top: -90px;
+	transition: all 1s ease;
+}
+
+.nologo > .logo {
+	opacity: 0;
+	transition: all 1s ease;
+}
+
+.showlogo {
+	margin-top: 0px;
+	transition: all 1s ease;
+}
+
+.showlogo > .logo {
+	opacity: 1;
+	transition: all 1s ease;
+}
+
 
 .crest {
 	position: absolute;
@@ -183,7 +205,6 @@ a, a:visited {
 
 .pic {
 	border: none;
-	border-radius: 18px;
 }
 
 #nationals {
@@ -191,7 +212,6 @@ a, a:visited {
 	color: #ccc;
 	background: #000;
 	padding: 13px 26px;
-	border-radius: 300px;
 }
 
 #nationals:hover {
@@ -200,14 +220,7 @@ a, a:visited {
 }
 
 #nationals, #nationals:hover {
-	-webkit-transition: color .5s ease;
-	-o-transition: color .5s ease;
-	transition: color .5s ease;
-	-moz-transition: color .5s ease;
-	-webkit-transition: background .5s ease;
-	-o-transition: background .5s ease;
-	transition: background .5s ease;
-	-moz-transition: background .5s ease;
+	transition: all .3s ease;
 }
 
 h1 {
@@ -231,7 +244,7 @@ p {
 	font-size: 10px;
 }
 
-#t2Text, #t3Text, #t4Text, #t5Text, #t6Text, #t7Text, #leadership {
+#t2Text, #t3Text, #t4Text, #t5Text, #t6Text, #leadership {
 	display: none;
 }
 
@@ -243,10 +256,6 @@ p {
 .nbbox {
 	cursor: auto;
 	background-image: url(images/nb.png);
-	border-right: 5px solid #aaa;
-	border-bottom: 5px solid #aaa;
-	border-left: 5px solid #ccc;
-	border-top: 5px solid #ccc;
 }
 
 .event {
