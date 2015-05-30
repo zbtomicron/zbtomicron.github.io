@@ -153,7 +153,6 @@ function displayNextImage() {
    */
   x = (x === imgs.length - 1) ? 0 : x + 1;
   $("#Box1 .pic").fadeOut("1000", function() {
-    console.log("TEST");
     $(this).attr("src", imgs[x]).fadeIn(1000);
   });
 
