@@ -1,11 +1,11 @@
-//SCALE ON LOAD//
+/*Global Variables */
 var desktop = true;
 var windowHeight = 0;
 var windowWidth = 0;
 var imagepos = 1;
 
 $(document).ready(function() {
-  // check if desktop or mobile //
+  /* Check if mobile or desktop. Mobile will not have logo-removal */
   var isMobile = {
       Android: function() {
           return navigator.userAgent.match(/Android/i);
@@ -26,10 +26,27 @@ $(document).ready(function() {
           return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
       }
   };
+
   if (isMobile.any()) {
     desktop = false;
   }
 
+  /* Only if desktop, remove logo on scroll */
+  if (desktop) {
+    $(window).scroll(function() {
+     var height = $('.cycle').height()-60,
+         scroll = $(this).scrollTop();
+     if (scroll > (height)){
+      $('.header').removeClass('showlogo');
+      $('.header').addClass('nologo');
+     } else {      
+      $('.header').removeClass('nologo');
+      $('.header').addClass('showlogo');
+     }
+    });
+  }
+
+  /* Initial font sizes */
   $('#t1').css('text-decoration','underline');
    windowHeight = $(window).height();
    var $imageWrapper = $('.resizable');
@@ -50,6 +67,7 @@ $(document).ready(function() {
    $('#brothers li').css('font-size', h4font+'px');
    $('p').css('font-size', pfont+'px');
 
+   /* Initial size for the landing page slideshow */
    $('#cycle2').css('margin-top', windowHeight*-1 + 'px');
    $('#cycle3').css('margin-top', windowHeight*-1 + 'px');
    $('#cycle4').css('margin-top', windowHeight*-1 + 'px');
@@ -57,8 +75,9 @@ $(document).ready(function() {
 
 
 
-//SCALE ON RESIZE//
+/* To scale on resize */
 $(window).resize(function() {
+  /* Updated font sizes */
    windowHeight = $(window).height();
    var $imageWrapper = $('.resizable');
    $imageWrapper.height( windowHeight );
@@ -78,58 +97,39 @@ $(window).resize(function() {
    $('#brothers li').css('font-size', h4font+'px');
    $('p').css('font-size', pfont+'px');
 
-  for (var i = 1; i < 5; i++) {
+   /* Updated size for the landing page slideshow */
     $('#cycle2').css('margin-top', windowHeight*-1 + 'px');
     $('#cycle3').css('margin-top', windowHeight*-1 + 'px');
     $('#cycle4').css('margin-top', windowHeight*-1 + 'px');
-  }
-});
-
-
-
-//REMOVE LOGO ON SCROLL//
-$(document).ready(function() {
-  //only for desktop//
-  if (desktop) {
-    $(window).scroll(function() {
-     var height = $('.cycle').height()-60,
-         scroll = $(this).scrollTop();
-     if (scroll > (height)){
-      $('.header').removeClass('showlogo');
-      $('.header').addClass('nologo');
-     } else {      
-      $('.header').removeClass('nologo');
-      $('.header').addClass('showlogo');
-     }
-    });
-  }
 });
 
 
 
 //SLIDESHOWS//
 
-//GOTB Slideshow//
-var imgs = [], x=-1, y=-1, z=-1, a=-1, b=-1;
-imgs[0] = "images/gotb.png";
+/* GOTB Slideshow */
+var imgs = [], x=-1, y=-1, z=-1;
+imgs[0] = "images/gotb6.png";
 imgs[1] = "images/gotb2.png";
 imgs[2] = "images/gotb3.png";
 imgs[3] = "images/gotb4.png";
 imgs[4] = "images/gotb5.png";
-imgs[5] = "images/gotb6.png";
-//TGB Slideshow//
+imgs[5] = "images/gotb.png";
+/* TGB Slideshow */
 var ims = [];
 ims[0] = "images/tgb3.png";
 ims[1] = "images/tgb4.png";
 ims[2] = "images/tgb5.png";
 ims[3] = "images/tgb2.png";
-//RFL Slideshow//
+/* RFL Slideshow */
 var igs = [];
 igs[0] = "images/rfl3.png";
 igs[1] = "images/rfl4.png";
 igs[2] = "images/rfl2.png";
-//Slideshow Function//
+
+/* Slideshow Function */
 function displayNextImage() {
+  /* change opacity of stack divs in landing page slideshow */
   imagepos++;
   if (imagepos == 5) {
       $('#cycle'+(imagepos-1)).animate({
@@ -147,22 +147,27 @@ function displayNextImage() {
     }
   }
 
-  y = (y === imgs.length - 1) ? 0 : y + 1;
-  $("#gotbBox .pic").fadeOut("1000", function() {
-    $(this).attr("src", imgs[y]).fadeIn(1000);
+  /* x is for get on the ball box,
+   * y is for tufts gives back box,
+   * z is for relay for life box
+   */
+  x = (x === imgs.length - 1) ? 0 : x + 1;
+  $("#Box1 .pic").fadeOut("1000", function() {
+    console.log("TEST");
+    $(this).attr("src", imgs[x]).fadeIn(1000);
   });
 
-  z = (z === ims.length - 1) ? 0 : z + 1;
-  $("#tgbBox .pic").fadeOut("1000", function() {
-    $(this).attr("src", ims[z]).fadeIn(1000);
+  y = (y === ims.length - 1) ? 0 : y + 1;
+  $("#Box2 .pic").fadeOut("1000", function() {
+    $(this).attr("src", ims[y]).fadeIn(1000);
   });
-  $("#mtwBox .pic").fadeOut("1000", function() {
-    $(this).attr("src", ims[z]).fadeIn(1000);
+  $("#Box4 .pic").fadeOut("1000", function() {
+    $(this).attr("src", ims[y]).fadeIn(1000);
   });
 
-  a = (a === igs.length - 1) ? 0 : a + 1;
-  $("#rflBox .pic").fadeOut("1000", function() {
-    $(this).attr("src", igs[a]).fadeIn(1000);
+  z = (z === igs.length - 1) ? 0 : z + 1;
+  $("#Box3 .pic").fadeOut("1000", function() {
+    $(this).attr("src", igs[z]).fadeIn(1000);
   });
 }
 //Initializing Function//

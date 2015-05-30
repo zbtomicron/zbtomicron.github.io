@@ -1,16 +1,57 @@
+/* FONTS */
 @font-face {
 	font-family: corbert;
 	src: url('corbert.otf');
 }
 
+
+/* GENERAL THINGS */
 body {
 	font-family: corbert;
 	background: #eee;
 	text-align: center;
 }
 
+a:hover {
+	text-decoration: none;
+}
+
 .no-overflow {
 	overflow-x: hidden;
+}
+
+h1 {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+h4 {
+	font-size: 18px;
+}
+
+h5 {
+	font-size: 17px;
+}
+
+p {
+	font-size: 10px;
+	padding-top: 10px;
+	color: black;
+}
+
+
+/* SECTIONS */
+#brothers li {
+	cursor: pointer;
+	font-size: 18px;
+}
+
+#new, #about, #philanthropy, #recruitment, #brothers {
+	padding: 75px 80px 80px 75px;
+}
+
+#new {
+	padding-top: 150px;
 }
 
 #about, #recruitment {
@@ -18,14 +59,148 @@ body {
 	background: #ccc;
 }
 
-a:hover {
-	text-decoration: none;
-}
-
 #philanthropy .row {
 	margin-left: 8%;
 }
 
+#nationals {
+	text-align: center;
+	color: #ccc;
+	background: #000;
+	padding: 13px 26px;
+}
+
+#nationals:hover {
+	color: #ffd700;
+	background: #000080;
+}
+
+#nationals, #nationals:hover {
+	transition: all .3s ease;
+}
+
+#t2Text, #t3Text, #t4Text, #t5Text, #t6Text, #leadership {
+	display: none;
+}
+
+.nb {
+	padding-left: 15%;
+	padding-right: 15%;
+}
+
+.nbbox {
+	cursor: auto;
+	background-image: url(images/nb.png);
+}
+
+
+/* MAIN SLIDESHOW */
+.cycle {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+#cycle1 {
+	background-image: url(images/brothers.png);
+	opacity: 1;
+}
+
+#cycle2 {
+	background-image: url(images/gotb.png);
+	opacity: 0;
+}
+
+#cycle3 {
+	background-image: url(images/formal.png);
+	opacity: 0;
+}
+
+#cycle4 {
+	background-image: url(images/gotb2.png);
+	opacity: 0;
+}
+
+
+/* NAV BAR*/
+.header {
+	background: #fff;
+	padding-bottom: 30px;
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+}
+
+.logo {
+	position: absolute;
+	left: 50%;
+	width: 250px;
+	height: 100px;
+	margin-left: -125px;
+}
+
+.nologo {
+	margin-top: -90px;
+	transition: all 1s ease;
+}
+
+.nologo > .logo {
+	opacity: 0;
+	transition: all 1s ease;
+}
+
+.showlogo {
+	margin-top: 0px;
+	transition: all 1s ease;
+}
+
+.showlogo > .logo {
+	opacity: 1;
+	transition: all 1s ease;
+}
+
+.crest {
+	position: absolute;
+	left: 50%;
+	width: 50px;
+	height: 50px;
+	margin-left: -25px;
+	border-bottom: 30px white;
+	border-bottom-left-radius: 100%;
+	border-bottom-right-radius: 100%;
+}
+
+a, a:visited {
+	color: #000080;
+}
+
+.nav a:hover {
+	color: #ffd700;
+}
+
+.nav .hover:hover {
+	color: #ffd700;
+}
+
+.panel-footer {
+	background-color: white;
+}
+
+.nav {
+	padding-top: 100px;
+	text-align: center;
+	padding-right: 40px;
+}
+
+.nav ul li, #brothers ul li {
+	display: inline-block;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 20px;
+}
+
+
+/* TOGGLE BOXES */
 .box {
 	height: 300px;
 	width: 300px;
@@ -86,196 +261,27 @@ a:hover {
 	background-image: url(images/mtw1.png);
 }
 
-#new, #about, #philanthropy, #recruitment, #brothers {
-	padding: 75px 80px 80px 75px;
-}
-
-#new {
-	padding-top: 150px;
-}
-
-.header {
-	background: #fff;
-	padding-bottom: 30px;
-	position: fixed;
-	width: 100%;
-	z-index: 1000;
-}
-
-.logo {
-	position: absolute;
-	left: 50%;
-	width: 250px;
-	height: 100px;
-	margin-left: -125px;
-}
-
-.nologo {
-	margin-top: -90px;
-	transition: all 1s ease;
-}
-
-.nologo > .logo {
-	opacity: 0;
-	transition: all 1s ease;
-}
-
-.showlogo {
-	margin-top: 0px;
-	transition: all 1s ease;
-}
-
-.showlogo > .logo {
-	opacity: 1;
-	transition: all 1s ease;
-}
-
-
-.crest {
-	position: absolute;
-	left: 50%;
-	width: 50px;
-	height: 50px;
-	margin-left: -25px;
-	border-bottom: 30px white;
-	border-bottom-left-radius: 100%;
-	border-bottom-right-radius: 100%;
-}
-
-.nav {
-	padding-top: 100px;
-	text-align: center;
-	padding-right: 40px;
-}
-
-.nav ul li, #brothers ul li {
-	display: inline-block;
-	padding-left: 10px;
-	padding-right: 10px;
-	font-size: 20px;
-}
-
-.cycle {
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: top center;
-}
-
-#cycle1 {
-	background-image: url(images/brothers.png);
-	opacity: 1;
-}
-
-#cycle2 {
-	background-image: url(images/gotb.png);
-	opacity: 0;
-}
-
-#cycle3 {
-	background-image: url(images/formal.png);
-	opacity: 0;
-}
-
-#cycle4 {
-	background-image: url(images/gotb2.png);
-	opacity: 0;
-}
-
-p {
-	padding-top: 10px;
-	color: black;
-}
-
-a, a:visited {
-	color: #000080;
-}
-
-.nav a:hover {
-	color: #ffd700;
-}
-
-.nav .hover:hover {
-	color: #ffd700;
-}
-
-.panel-footer {
-	background-color: white;
-}
-
 #Box1, #Box2, #Box3, #Box4, #Box5, #Box6 {
 	display: none;
 	position: absolute;
 	z-index: 9999;
 	margin: auto;
-	background-color: rgba(245, 245, 245, 0.9);
+	background-color: rgba(245, 245, 245, 1);
 	color: #000;
 	text-align: center;
 	padding: 20px;
 }
 
 .exit {
-	margin-left: 98%;
-	width: 25px;
-	height: 25px;
+	margin-left: 96%;
+	width: 50px;
+	height: 50px;
 	text-align: right;
-	font-size: 15px;
+	font-size: 50px;
+	border: none;
+	background-color: rgba(245, 245, 245, 1);
 }
 
 .pic {
 	border: none;
-}
-
-#nationals {
-	text-align: center;
-	color: #ccc;
-	background: #000;
-	padding: 13px 26px;
-}
-
-#nationals:hover {
-	color: #ffd700;
-	background: #000080;
-}
-
-#nationals, #nationals:hover {
-	transition: all .3s ease;
-}
-
-h1 {
-	font-size: 30px;
-	font-weight: bold;
-}
-
-h4, #brothers li {
-	font-size: 18px;
-}
-
-#brothers li {
-	cursor: pointer;
-}
-
-h5 {
-	font-size: 17px;
-}
-
-p {
-	font-size: 10px;
-}
-
-#t2Text, #t3Text, #t4Text, #t5Text, #t6Text, #leadership {
-	display: none;
-}
-
-.nb {
-	padding-left: 15%;
-	padding-right: 15%;
-}
-
-.nbbox {
-	cursor: auto;
-	background-image: url(images/nb.png);
-}
-
-.event {
-	text-shadow: 1px 1px #ffd700;
 }
