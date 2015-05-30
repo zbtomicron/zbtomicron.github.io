@@ -1,5 +1,9 @@
 //SCALE ON LOAD//
 var desktop = true;
+var windowHeight = 0;
+var windowWidth = 0;
+var imagepos = 1;
+
 $(document).ready(function() {
   // check if desktop or mobile //
   var isMobile = {
@@ -27,10 +31,10 @@ $(document).ready(function() {
   }
 
   $('#t1').css('text-decoration','underline');
-   var windowHeight = $(window).height();
+   windowHeight = $(window).height();
    var $imageWrapper = $('.resizable');
    $imageWrapper.height( windowHeight );
-   var windowWidth = $(window).width();
+   windowWidth = $(window).width();
    var percentage = windowWidth/1284;
    var currheight = 300*percentage;
    var h1font = 30*percentage+3;
@@ -45,16 +49,20 @@ $(document).ready(function() {
    $('h5').css('font-size', h5font+'px');
    $('#brothers li').css('font-size', h4font+'px');
    $('p').css('font-size', pfont+'px');
+
+   $('#cycle2').css('margin-top', windowHeight*-1 + 'px');
+   $('#cycle3').css('margin-top', windowHeight*-1 + 'px');
+   $('#cycle4').css('margin-top', windowHeight*-1 + 'px');
 });
 
 
 
 //SCALE ON RESIZE//
 $(window).resize(function() {
-   var windowHeight = $(window).height();
+   windowHeight = $(window).height();
    var $imageWrapper = $('.resizable');
    $imageWrapper.height( windowHeight );
-   var windowWidth = $(window).width();
+   windowWidth = $(window).width();
    var percentage = windowWidth/1284;
    var currheight = 300*percentage;
    var h1font = 30*percentage+3;
@@ -69,6 +77,12 @@ $(window).resize(function() {
    $('h5').css('font-size', h5font+'px');
    $('#brothers li').css('font-size', h4font+'px');
    $('p').css('font-size', pfont+'px');
+
+  for (var i = 1; i < 5; i++) {
+    $('#cycle2').css('margin-top', windowHeight*-1 + 'px');
+    $('#cycle3').css('margin-top', windowHeight*-1 + 'px');
+    $('#cycle4').css('margin-top', windowHeight*-1 + 'px');
+  }
 });
 
 
@@ -95,12 +109,6 @@ $(document).ready(function() {
 
 //SLIDESHOWS//
 
-//Homepage Slideshow//
-var images = [], x = -1;
-images[0] = "images/gotb.png";
-images[1] = "images/formal.png";
-images[2] = "images/gotb2.png";
-images[3] = "images/brothers.png";
 //GOTB Slideshow//
 var imgs = [], x=-1, y=-1, z=-1, a=-1, b=-1;
 imgs[0] = "images/gotb.png";
@@ -122,12 +130,25 @@ igs[1] = "images/rfl4.png";
 igs[2] = "images/rfl2.png";
 //Slideshow Function//
 function displayNextImage() {
-  if($(".cycle").is(":visible")) {
-      x = (x === images.length - 1) ? 0 : x + 1;
-    $(".cycle").fadeOut("1000", function() {
-       $(".cycle").css("background-image", "url("+images[x]+")").fadeIn(1000);
-    });
+  imagepos++;
+
+  console.log(imagepos);
+  if (imagepos == 5) {
+      $('#cycle'+(imagepos-1)).animate({
+      opacity: 0,
+      }, 1500, 'easeInOutExpo');
+    imagepos = 1;
+  } else {
+    $('#cycle'+imagepos).animate({
+      opacity: 1,
+      }, 1500, 'easeInOutExpo');
+    if (imagepos > 2) {
+      $('#cycle'+(imagepos-1)).animate({
+      opacity: 0,
+      }, 1500, 'easeInOutExpo');
+    }
   }
+
   y = (y === imgs.length - 1) ? 0 : y + 1;
   $("#gotbBox .pic").fadeOut("1000", function() {
     $(this).attr("src", imgs[y]).fadeIn(1000);

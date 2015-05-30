@@ -157,10 +157,28 @@ a:hover {
 
 .cycle {
 	background-size: cover;
-	background-image: url(images/brothers.png);
 	background-repeat: no-repeat;
 	background-position: top center;
-	z-index: -1;
+}
+
+#cycle1 {
+	background-image: url(images/brothers.png);
+	opacity: 1;
+}
+
+#cycle2 {
+	background-image: url(images/gotb.png);
+	opacity: 0;
+}
+
+#cycle3 {
+	background-image: url(images/formal.png);
+	opacity: 0;
+}
+
+#cycle4 {
+	background-image: url(images/gotb2.png);
+	opacity: 0;
 }
 
 p {
