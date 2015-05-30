@@ -131,8 +131,6 @@ igs[2] = "images/rfl2.png";
 //Slideshow Function//
 function displayNextImage() {
   imagepos++;
-
-  console.log(imagepos);
   if (imagepos == 5) {
       $('#cycle'+(imagepos-1)).animate({
       opacity: 0,
