@@ -210,7 +210,7 @@ function toggleBox(e) {
 
 //TOGGLING BROTHERS//
 function togText(e) {
-  for (var i=1; i<8;i++) {
+  for (var i=1; i<7;i++) {
     if ('#t'+i == e) {
       $(e).css('text-decoration', 'underline');
       $(e+'Text').css('display','block');
