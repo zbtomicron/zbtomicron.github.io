@@ -1,11 +1,16 @@
-/*Global Variables */
+/* globals */
 var desktop = true;
 var windowHeight = 0;
 var windowWidth = 0;
 var imagepos = 1;
 
+/* ==========================================================================*/
+
+/* inits */
 $(document).ready(function() {
-  /* Check if mobile or desktop. Mobile will not have logo-removal */
+  setInterval(displayNext, 8000);
+
+  /* mobile check */
   var isMobile = {
       Android: function() {
           return navigator.userAgent.match(/Android/i);
@@ -23,18 +28,17 @@ $(document).ready(function() {
           return navigator.userAgent.match(/IEMobile/i);
       },
       any: function() {
-          return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+          return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() 
+            || isMobile.Opera() || isMobile.Windows());
       }
   };
+  desktop = !isMobile.any();
 
-  if (isMobile.any()) {
-    desktop = false;
-  }
 
-  /* Only if desktop, remove logo on scroll */
+  /* keep logo on mobile; remove logo on desktop scroll */
   if (desktop) {
     $(window).scroll(function() {
-     var height = $('.cycle').height()-60,
+     var height = $('#bg1').height()-60,
          scroll = $(this).scrollTop();
      if (scroll > (height)){
       $('.header').removeClass('showlogo');
@@ -45,170 +49,36 @@ $(document).ready(function() {
      }
     });
   }
-
-  /* Initial font sizes */
-  $('#t1').css('text-decoration','underline');
-   windowHeight = $(window).height();
-   var $imageWrapper = $('.resizable');
-   $imageWrapper.height( windowHeight );
-   windowWidth = $(window).width();
-   var percentage = windowWidth/1284;
-   var currheight = 300*percentage;
-   var h1font = 30*percentage+3;
-   var h4font = 18*percentage+3;
-   var h5font = 17*percentage+3;
-   var pfont = 10*percentage+3;
-   $('.box').css('height',currheight+'px');
-   $('.box').css('width',currheight+'px');
-   $('.box').css('background-size', currheight+'px');
-   $('h1').css('font-size', h1font+'px');
-   $('h4').css('font-size', h4font+'px');
-   $('h5').css('font-size', h5font+'px');
-   $('#brothers li').css('font-size', h4font+'px');
-   $('p').css('font-size', pfont+'px');
-
-   /* Initial size for the landing page slideshow */
-   $('#cycle2').css('margin-top', windowHeight*-1 + 'px');
-   $('#cycle3').css('margin-top', windowHeight*-1 + 'px');
-   $('#cycle4').css('margin-top', windowHeight*-1 + 'px');
 });
 
+/* ==========================================================================*/
 
-
-/* To scale on resize */
-$(window).resize(function() {
-  /* Updated font sizes */
-   windowHeight = $(window).height();
-   var $imageWrapper = $('.resizable');
-   $imageWrapper.height( windowHeight );
-   windowWidth = $(window).width();
-   var percentage = windowWidth/1284;
-   var currheight = 300*percentage;
-   var h1font = 30*percentage+3;
-   var h4font = 18*percentage+3;
-   var h5font = 16*percentage+3;
-   var pfont = 10*percentage+3;
-   $('.box').css('height',currheight+'px');
-   $('.box').css('width',currheight+'px');
-   $('.box').css('background-size', currheight+'px');
-   $('h1').css('font-size', h1font+'px');
-   $('h4').css('font-size', h4font+'px');
-   $('h5').css('font-size', h5font+'px');
-   $('#brothers li').css('font-size', h4font+'px');
-   $('p').css('font-size', pfont+'px');
-
-   /* Updated size for the landing page slideshow */
-    $('#cycle2').css('margin-top', windowHeight*-1 + 'px');
-    $('#cycle3').css('margin-top', windowHeight*-1 + 'px');
-    $('#cycle4').css('margin-top', windowHeight*-1 + 'px');
-});
-
-
-
-//SLIDESHOWS//
-
-/* GOTB Slideshow */
-var imgs = [], x=-1, y=-1, z=-1;
-imgs[0] = "images/gotb6.png";
-imgs[1] = "images/gotb2.png";
-imgs[2] = "images/gotb3.png";
-imgs[3] = "images/gotb4.png";
-imgs[4] = "images/gotb5.png";
-imgs[5] = "images/gotb.png";
-/* TGB Slideshow */
-var ims = [];
-ims[0] = "images/tgb3.png";
-ims[1] = "images/tgb4.png";
-ims[2] = "images/tgb5.png";
-ims[3] = "images/tgb2.png";
-/* RFL Slideshow */
-var igs = [];
-igs[0] = "images/rfl3.png";
-igs[1] = "images/rfl4.png";
-igs[2] = "images/rfl2.png";
-
-/* Slideshow Function */
-function displayNextImage() {
-  /* change opacity of stack divs in landing page slideshow */
-  imagepos++;
-  if (imagepos == 5) {
-      $('#cycle'+(imagepos-1)).animate({
-      opacity: 0,
-      }, 1500, 'easeInOutExpo');
-    imagepos = 1;
-  } else {
-    $('#cycle'+imagepos).animate({
-      opacity: 1,
-      }, 1500, 'easeInOutExpo');
-    if (imagepos > 2) {
-      $('#cycle'+(imagepos-1)).animate({
-      opacity: 0,
-      }, 1500, 'easeInOutExpo');
+/* slideshow function */
+function displayNext() {
+  (imagepos===4) ? imagepos=1 : imagepos+=1
+  $(".background").each(function() {
+    var that = this;
+    if ($(that).attr("id") === "bg" + imagepos) {
+      $(that).animate({ opacity: 1 }, 1500, 'easeInOutExpo');
+    } else {
+      $(that).animate({ opacity: 0 }, 1500, 'easeInOutExpo');
     }
-  }
-
-  /* x is for get on the ball box,
-   * y is for tufts gives back box,
-   * z is for relay for life box
-   */
-  x = (x === imgs.length - 1) ? 0 : x + 1;
-  $("#Box1 .pic").fadeOut("1000", function() {
-    $(this).attr("src", imgs[x]).fadeIn(1000);
   });
+};
 
-  y = (y === ims.length - 1) ? 0 : y + 1;
-  $("#Box2 .pic").fadeOut("1000", function() {
-    $(this).attr("src", ims[y]).fadeIn(1000);
-  });
-  $("#Box4 .pic").fadeOut("1000", function() {
-    $(this).attr("src", ims[y]).fadeIn(1000);
-  });
+/* ==========================================================================*/
 
-  z = (z === igs.length - 1) ? 0 : z + 1;
-  $("#Box3 .pic").fadeOut("1000", function() {
-    $(this).attr("src", igs[z]).fadeIn(1000);
-  });
-}
-//Initializing Function//
-$(document).ready(function startTimer() {
-      setInterval(displayNextImage, 8000);
-});
-
-
-
-//EASING SCROLL//
-$(function() {
-    $('a.page-scroll').bind('click', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
-        }, 1500, 'easeInOutExpo');
-        event.preventDefault();
-    });
-});
-
-
-
-//TOGGLING PHILANTHROPY//
-function toggleBox(e) {
-  if ($(e).css('display')=="block") {
-    $(e).css('display', 'none');
-    $("body").css("overflow", "visible");
-  } else {
-    $(e).css('display', 'block');
-    var height = $(window).height();
-    var width = $(window).width();
-    $(e).css('height', height);
-    $(e).css('width', width);
-    $(e+' .pic').css('width', width/2);
-    $("html, body").scrollTop($(e).offset().top);
-  $("body").css("overflow", "hidden");
+/* toggle philanthropy causes */ 
+function togBox(a, b) {
+  if (desktop) {
+    $(a).addClass("hidden");
+    $(b).removeClass("hidden");
   }
 }
 
+/* ==========================================================================*/
 
-
-//TOGGLING BROTHERS//
+/* toggle brother classes */
 function togText(e) {
   for (var i=1; i<7;i++) {
     if ('#t'+i == e) {
@@ -221,77 +91,41 @@ function togText(e) {
   }
 }
 
+/* ==========================================================================*/
 
-
-//ACTIVE-BASED SCROLL//
-  $(window).scroll(function() {
-
-   var height = $('#fill1').offset().top,
-       scroll = $(this).scrollTop();
-   if (scroll > height-20){
-       $(".n1").css("text-decoration","underline");    
-       $(".n1").css("color","#ffd700");   
-} else {
-       $(".n1").css("text-decoration","none");
-       $(".n1").css("color","#000080");
-   }
-
-       height = $('#fill2').offset().top,
-       scroll = $(this).scrollTop();
-   if (scroll > height-20){
-       $(".n2").css("text-decoration","underline");    
-       $(".n2").css("color","#ffd700");
-       $(".n1").css("text-decoration","none");    
-       $(".n1").css("color","#000080");
-   } else {
-       $(".n2").css("text-decoration","none");
-       $(".n2").css("color","#000080");
-   }
-
-       height = $('#fill3').offset().top,
-       scroll = $(this).scrollTop();
-   if (scroll > height-20) {
-       $(".n3").css("text-decoration","underline");    
-       $(".n3").css("color","#ffd700");
-       $(".n1").css("text-decoration","none");    
-       $(".n1").css("color","#000080");
-       $(".n2").css("text-decoration","none");    
-       $(".n2").css("color","#000080");  
-   } else {
-       $(".n3").css("text-decoration","none");
-       $(".n3").css("color","#000080");
-   }
-
-       height = $('#fill4').offset().top,
-       scroll = $(this).scrollTop();
-   if (scroll > height-20) {
-       $(".n4").css("text-decoration","underline");    
-       $(".n4").css("color","#ffd700");
-       $(".n1").css("text-decoration","none");    
-       $(".n1").css("color","#000080");
-       $(".n2").css("text-decoration","none");    
-       $(".n2").css("color","#000080");
-       $(".n3").css("text-decoration","none");    
-       $(".n3").css("color","#000080");  
-   } else {
-       $(".n4").css("text-decoration","none");
-       $(".n4").css("color","#000080");
-   }
-       height = $('#fill5').offset().top,
-       scroll = $(this).scrollTop();
-   if (scroll > height-20) {
-       $(".n5").css("text-decoration","underline");    
-       $(".n5").css("color","#ffd700");
-       $(".n1").css("text-decoration","none");    
-       $(".n1").css("color","#000080");
-       $(".n2").css("text-decoration","none");    
-       $(".n2").css("color","#000080");
-       $(".n3").css("text-decoration","none");    
-       $(".n3").css("color","#000080");
-       $(".n4").css("text-decoration","none");   
-       $(".n4").css("color","#000080");
-   } else {
-       $(".n5").css("text-decoration","none");
-       $(".n5").css("color","#000080");
-   }
+/* anchor-scrolling function */
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        if (($anchor.attr('href')==="#about") || !desktop) {
+          $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top-100
+          }, 1500, 'easeInOutExpo');
+        } else {
+          $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top-25
+          }, 1500, 'easeInOutExpo');
+        }
+        event.preventDefault();
+    });
 });
+
+/* ==========================================================================*/
+
+/* active-scrolling function */
+  $(window).scroll(function() {
+    scroll = $(this).scrollTop();
+    $(".nav li a").each(function() {
+      var that = this;
+      if ($(that).attr("id") !== "p-s5") {
+        var target = $(that).attr("href");
+        height = $(target).offset().top-105;
+        if (scroll > height) {
+          $(".nav li a").removeClass("active");
+          $(that).addClass("active");
+        } else {
+          $(that).removeClass("active");
+        }
+      }
+    });
+  });

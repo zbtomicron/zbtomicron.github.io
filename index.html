@@ -3,117 +3,68 @@
     <head>
         <meta charset="utf-8">
         <title>Tufts Zeta Beta Tau</title>
-        <script src="https://code.jquery.com/jquery-latest.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-        <script src="jquery.easing.min.js"></script>
-        <script src="resizing.js"></script>
         <link rel="stylesheet" href="styles.css">
         <link rel="shortcut icon" href="favicon.ico" />
     </head>
     <body>
-        <div class="no-overflow">
         <div id="top"></div>
         <div class="header">
             <img class="logo" src="images/logo.png" alt="zbt omicron"/>
             <div class="nav"><ul>
-  <!--               <li><a class="page-scroll n1" href="#new"><span class="hover">what's new</span></a></li> -->
-                <li><a class="page-scroll n2" href="#about"><span class="hover">who we are</span></a></li>
-                <li><a class="page-scroll n3" href="#philanthropy"><span class="hover">philanthropy</span></a></li>
-                <li><a class="page-scroll n4" href="#recruitment"><span class="hover">recruitment</span></a></li>
-                <li><a class="page-scroll n5" href="#brothers"><span class="hover">brothers</span></a></li>
-                <li><a class="page-scroll n6" href="mailto:president@zbtomicron.com">contact</a></li>
+                <li><a class="page-scroll" id="p-s1" href="#about">who we are</a></li>
+                <li><a class="page-scroll" id="p-s2" href="#philanthropy">philanthropy</a></li>
+                <li><a class="page-scroll" id="p-s3" href="#recruitment">recruitment</a></li>
+                <li><a class="page-scroll" id="p-s4" href="#brothers">brothers</a></li>
+                <li><a class="page-scroll" id="p-s5" href="mailto:president@zbtomicron.com">contact</a></li>
             </ul></div>
             <a href="#top" class="page-scroll"><img class="crest" src="images/crest.png" alt="zbt crest"/></a>
         </div>
-            <div class="cycle resizable" id="cycle1"></div>
-            <div class="cycle resizable" id="cycle2"></div>
-            <div class="cycle resizable" id="cycle3"></div>
-            <div class="cycle resizable" id="cycle4"></div>
-        <div id="fill1"></div>
-  <!--       <div id="new">
-            <h1>Fall Rush!</h1>
-            <h3>Rush is here!</h3><h4>Stop by ZBT's events to get to know us! Our first event is Super Smash Bros. and Chipotle, and it is going to be held on INSERT-DATE-HERE. Our next event is Dodgeball, on the DATE, and our last event is on the DATE.<br>Check out the section on <a href="#recruitment" class="page-scroll n4">recruitment</a> for more information!</h4><br>
-            <h1>New Brother Spotlight</h1>
-            <div class="row nb"><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><h4>Spring 2016 saw the largest new brother class in ZBT history, with 15 new brothers. This is the latest example of our chapter's continual growth.</h4></div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 box nbbox"></div>
-        </div></div> -->
-        <div id="fill2"></div>
-        <div id="about">
+        <div class="slideshow">
+            <div class="background" id="bg1"></div>
+            <div class="background" id="bg2"></div>
+            <div class="background" id="bg3"></div>
+            <div class="background" id="bg4"></div>
+        </div>
+
+        <div class="section" id="about">
             <h1>A Powerhouse of Excellence</h1>
-            <h4>The Omicon Chapter of Zeta Beta Tau was founded in 1987 at Tufts University. In the small room of 102 Hill Hall, our first four founders met to plan out the future of the chapter. Since that point, ZBT Omicron has enjoyed over 25 years of great memories, philanthropic efforts and social events at Tufts University.</h4><br>
-            <h4>Since its founding, ZBT Omicron has seen success, a success that has continued over the past few years. We have fundraised tens of thousands of dollars for the Boston Children's Hospital, received national awards and accolades like Most Improved ZBT Chapter from <a href="http://www.zbt.org">ZBT Nationals</a>, and maintained our commitment to being Tufts' only non-pledging fraternity.</h4><br>
+            <h4>The Omicon Chapter of Zeta Beta Tau was founded in 1987 at Tufts University. In the small room of 102 Hill Hall, our first four founders met to plan out the future of the chapter. Since that point, ZBT Omicron has enjoyed over 25 years of great memories, philanthropic efforts and social events at Tufts University.</h4>
+            <h4>Since its founding, ZBT Omicron has seen success, a success that has continued over the past few years. We have fundraised tens of thousands of dollars for the Boston Children's Hospital, received national awards and accolades like Most Improved ZBT Chapter from <a href="http://www.zbt.org">ZBT Nationals</a>, and maintained our commitment to being Tufts' only non-pledging fraternity.</h4>
             <h4>We, the members of Zeta Beta Tau fraternity, believe that the development of the individual as a responsible, mature member of society is the primary goal of the university today. We believe that fraternity offers to the university community a unique, desirable and successful means of achieving this goal. In fulfilling the purposes of fraternity, we dedicate ourselves to the principles of Intellectual Awareness, Social Responsibility, Integrity, and Brotherly Love.</h4>
-            <br><a href="newsletter.pdf" download="newsletter" id="nationals">Download Our Latest Newsletter</a>
+            <a href="newsletter.pdf" class="poitner" download="newsletter" id="newsletter">Download Our Latest Newsletter</a>
         </div>
-        <div id="Box1">
-            <button class="exit" onmousedown="toggleBox('#Box1')">&times;</button>
-            <h1>Get On The Ball</h1>
-            <h4>Get On The Ball is ZBT Omicron's weeklong fundraiser for the <b>Boston Children's Hospital</b>. During the week, we raise money and awareness for the Hospital, rolling a 6x6 ball around campus. We get the entire Tufts and Medford/Somerville community involved, taking all contributions from monetary donations to just signing the ball.</h4>
-            <h4>Last year, in 2013 we raised $5500 during our weeklong fundraiser, cosponsoring with countless businesses (JP Licks, Kickass Cupcakes) and working with several on-campus groups (Alpha Omicron Pi, Spirit of Color, sQ!, Amalgamates, Jackson Jills, BEATs, S-Factor and more).</h4>
-            <img src="images/gotb.png" alt="president monaco with the ball" class="pic"/>
-        </div>
-        <div id="Box2">
-            <button class="exit" onmousedown="toggleBox('#Box2')">&times;</button>
-            <h1>Be The Match</h1>
-            <h4>In April 2014, ZBT Omicron brought Be The Match to Tufts University. In cosponsorship with the Tufts Association of Southeast Asians and the Tufts Psychology Department, ZBT helped enter over fifty members of the Tufts community into the bone marrow registry. Those who entered the registry potentially helped the lives of many.</h4>
-            <h4>Bringing Be the Match to the Tufts Campus was a part of Tufts Gives Back, the one day of the year dedicated to giving back to the community. Tufts Gives Back was created by ZBT, and 2014 was its inaugural year.</h4>
-            <img src="images/tgb2.png" alt="tufts gives back photos" class="pic"/>
-        </div>
-        <div id="Box3">
-            <button class="exit" onmousedown="toggleBox('#Box3')">&times;</button>
-            <h1>Relay for Life</h1>
-            <h4>Every year, brothers of ZBT Omicron participate in Relay for Life – an up-all-night fight against cancer, and a fundraiser for cancer research. In 2013, we fundraised the most for any fraternity, and we received the bronze medal of honor in recognition for our efforts. In 2014, we placed second in the inter-Greek fundraising competition.</h4>
-            <h4>Check back soon for more information about how to donate to and join our Spring 2015 Relay for Life team.</h4>
-            <img src="images/rfl2.png" alt="relay for life photos" class="pic"/>
-        </div>
-        <div id="Box4">
-            <button class="exit" onmousedown="toggleBox('#Box4')">&times;</button>
-            <h1>More Than Words</h1>
-            <h4>In April 2014, ZBT Omicron partnered with More Than Words. More Than Words is bookstore that employs people from disadvantaged backgrounds and gives them interview training so that they can find jobs elsewhere. Over the course of a few days, we sold and collected books for More Than Words, donating all profits and books made to them.</h4>
-            <h4>Bringing More Than Words to the Tufts Campus was a part of Tufts Gives Back, the one day of the year dedicated to giving back to the community. Tufts Gives Back was created by ZBT, and 2014 was its inaugural year.</h4>
-            <img src="images/tgb5.png" alt="tufts gives back photos" class="pic"/>
-        </div>
-        <div id="Box5">
-            <button class="exit" onmousedown="toggleBox('#Box5')">&times;</button>
-            <h1>Community Servings</h1>
-            <h4>Brothers of ZBT Omicron volunteer at Community Servings several times a semester. Going in groups of 6-10, we spend our Friday afternoon packaging food for those battling AIDS, in addition to their dependents and caretakers. If you're ever interested in working a shift with us, reach out to brother <a href="mailto:Ryan.Havens@tufts.edu">Ryan Havens</a></h4>
-            <h4>Through the help of us and the hundreds of other volunteers, Community Servings is able to deliver 9,250 lunches adn dinners each week to homes of almost 875 individuals and families that are homebound due to acute life-threatening illness.</h4>
-            <img src="images/comm2.png" alt="community servings" class="pic"/>
-        </div>
-        <div id="Box6">
-            <button class="exit" onmousedown="toggleBox('#Box6')">&times;</button>
-            <h1>Big Brothers, Big Sisters</h1>
-            <h4>Big Brothers, Big Sisters is dedicated to helping children realize their potential and build their futures. With one of our core tenets being Intellectual Awareness, us ZBT brothers are, too.</h4>
-            <h4>ZBT Omicron began its partnership with Big Brothers Big Sisters' Boston Chapter in the end of 2013. Since that point, several of our brothers have become bigs for students in local Boston-area school districts. Those brothers are committed to making a difference and strengthening the local children and community.</h4>
-        </div>
-        <div id="fill3"></div>
-        <div id="philanthropy">
+
+        <div class="section" id="philanthropy">
             <h1>Committed to Social Responsibility</h1>
-            <div class="row">
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 box gotb" onmousedown="toggleBox('#Box1')"></div>
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 box rfl" onmousedown="toggleBox('#Box3')"></div>
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 box comm" onmousedown="toggleBox('#Box5')"></div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 box tgb" onmousedown="toggleBox('#Box2')"></div>
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 box bbbs" onmousedown="toggleBox('#Box6')"></div>
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 box mtw" onmousedown="toggleBox('#Box4')"></div>
+            <div>
+                <div id="flip1" class="box pointer hidden" onmousedown="togBox('#flip1', '#gotb')">
+                    <p>Get On The Ball is ZBT Omicron's weeklong fundraiser for the <b>Boston Children's Hospital</b>. During the week, we raise money and awareness for the Hospital, rolling a 6x6 ball around campus. We get the entire Tufts and Medford/Somerville community involved, taking all contributions from monetary donations to just signing the ball.</p>
+                </div>
+                <div class="box pointer" id="gotb" onmousedown="togBox('#gotb', '#flip1')"></div>
+                <div id="flip2" class="box pointer hidden" onmousedown="togBox('#flip2', '#rfl')">
+                    <p>Every year, brothers of ZBT Omicron participate in Relay for Life – an up-all-night fight against cancer, and a fundraiser for cancer research. In 2013, we fundraised the most for any fraternity, and we received the bronze medal of honor in recognition for our efforts. In 2014, we placed second in the inter-Greek fundraising competition.</p>
+                    <p>Check back soon for more information about how to donate to and join our Spring 2015 Relay for Life team.</p>
+                </div>
+                <div class="box pointer" id="rfl" onmousedown="togBox('#rfl', '#flip2')"></div>
+                <div id="flip3" class="box pointer hidden" onmousedown="togBox('#flip3', '#bbbs')">
+                    <p>Big Brothers, Big Sisters is dedicated to helping children realize their potential and build their futures. With one of our core tenets being Intellectual Awareness, us ZBT brothers are, too.</p>
+                    <p>ZBT Omicron began its partnership with Big Brothers Big Sisters' Boston Chapter in the end of 2013. Since that point, several of our brothers have become bigs for students in local Boston-area school districts. Those brothers are committed to making a difference and strengthening the local children and community.</p>
+                </div>                
+                <div class="box pointer" id="bbbs" onmousedown="togBox('#bbbs', '#flip3')"></div>
             </div>
         </div>
-        <div id="fill4"></div>
-        <div id="recruitment">
+
+        <div class="section" id="recruitment">
             <h1>Fall Rush 2016</h1>
             <h4>Are you a freshman or sophomore? Are you interested in Greek life?</h4>
-            <br/>
             <h4>Look no further than Zeta Beta Tau, Omicron Chapter.</h4>
-            <br/>
             <h4>We will be developing our Fall Rush schedule at the start of the Fall 2016 semester. Keep posted for updates, event listings, and a timeline of events. As usual, expect nothing less than a fun time both getting to know your potential brothers and learning more about our house culture.</h4>
-            </br>
             <h4>For more information or if you have any questions, please contact <a href="mailto:Benjamin.Francis@tufts.edu">Ben Francis</a>.</h4>
         </div>
-        <div id="fill5"></div>
-        <div id="brothers">
+
+        <!-- tbd ;; also, hovering issue on mobile -->
+
+        <div class="section" id="brothers">
             <h1>Brothers</h1><ul>
             <li id="t1" onmousedown="togText('#t1')">Leadership</li>
             <li id="t2" onmousedown="togText('#t2')">Beta Theta</li>
@@ -123,80 +74,87 @@
             <li id="t6" onmousedown="togText('#t6')">Beta Mu</li>
             </ul><br>
             <div id="t1Text">
-                <h5>President: Matthew Mazzarella</h5>
-                <h5>Vice President Internal: David Bernstein</h5>
-                <h5>Vice President External: Ryan Havens</h5>
-                <h5>Brotherhood Development Director: Alexander Ray</h5>
-                <h5>Secretary: Chris Kearns-McCoy</h5>
-                <h5>Treasurer: Rihab Fahad<br><br><br><br><br><br><br></h5>
+                <h4>President: Matthew Mazzarella</h4>
+                <h4>Vice President Internal: David Bernstein</h4>
+                <h4>Vice President External: Ryan Havens</h4>
+                <h4>Brotherhood Development Director: Alexander Ray</h4>
+                <h4>Secretary: Chris Kearns-McCoy</h4>
+                <h4>Treasurer: Rihab Fahad</h4>
             </div>
             <div id="t2Text">
-                <h5>David Bernstein: E'17</h5>
-                <h5>Joseph Cirone: E'17</h5>
-                <h5>Matthew Felsenfeld: A'17</h5>
-                <h5>Morgan Gellert: E'17</h5>
-                <h5>Ryan Hastings-Echo: A'17</h5>
-                <h5>Ryan Havens: A'17</h5>
-                <h5>Justin Lee: A'17</h5>
-                <h5>Matthew Mazzarella: A'17</h5>
-                <h5>Jacob Mittleman: A'17</h5>
-                <h5>Andrew Narahara: E'17</h5>
-                <h5>Benjamin Pall: E'17</h5>
-                <h5>Jonathan Sirota: A'17</h5>
+                <h4>David Bernstein: E'17</h4>
+                <h4>Joseph Cirone: E'17</h4>
+                <h4>Matthew Felsenfeld: A'17</h4>
+                <h4>Morgan Gellert: E'17</h4>
+                <h4>Ryan Hastings-Echo: A'17</h4>
+                <h4>Ryan Havens: A'17</h4>
+                <h4>Justin Lee: A'17</h4>
+                <h4>Matthew Mazzarella: A'17</h4>
+                <h4>Jacob Mittleman: A'17</h4>
+                <h4>Andrew Narahara: E'17</h4>
+                <h4>Benjamin Pall: E'17</h4>
+                <h4>Jonathan Sirota: A'17</h4>
             </div>
             <div id="t3Text">
-                <h5>Arlo Clarke: E'17</h5>
-                <h5>Joshua Insler: A'17</h5>
-                <h5>James Lacitignola: A'17</h5>
-                <h5>Kevin Meli: A'17</h5>
-                <h5>Benjamin Shipley: A'17</h5>
-                <h5>Trevor Vassallo: E'17</br></br></br></br></br></br></h5>
+                <h4>Arlo Clarke: E'17</h4>
+                <h4>Joshua Insler: A'17</h4>
+                <h4>James Lacitignola: A'17</h4>
+                <h4>Kevin Meli: A'17</h4>
+                <h4>Benjamin Shipley: A'17</h4>
+                <h4>Trevor Vassallo: E'17</h4>
             </div>
             <div id="t4Text">
-                <h5>David Batubara: A'18</h5>
-                <h5>Peter Bernstein: E'17</h5>
-                <h5>Matthew Carrington-Fair: A'18</h5>
-                <h5>Rihab Fahad: E'18</h5>
-                <h5>Jacob Hafey: A'18</h5>
-                <h5>Kenny Li: A'18</h5>
-                <h5>Chris Kearns-McCoy: A'18</h5>
-                <h5>Vance Matthews: A'18</h5>
-                <h5>Dan Meyer: E'18</br></br></h5>
+                <h4>David Batubara: A'18</h4>
+                <h4>Peter Bernstein: E'17</h4>
+                <h4>Matthew Carrington-Fair: A'18</h4>
+                <h4>Rihab Fahad: E'18</h4>
+                <h4>Jacob Hafey: A'18</h4>
+                <h4>Kenny Li: A'18</h4>
+                <h4>Chris Kearns-McCoy: A'18</h4>
+                <h4>Vance Matthews: A'18</h4>
+                <h4>Dan Meyer: E'18</h4>
             </div>
             <div id="t5Text">
-                <h5>Alan Bartels: A'17</h5>
-                <h5>Matthew Epstein: E'18</h5>
-                <h5>Nicholas Fallah: A'18</h5>
-                <h5>Benjamin Francis: E'18</h5>
-                <h5>Daniel Kimmick: A'18</h5>
-                <h5>Dan Lang: E'17</h5>
-                <h5>Kevin Lim: A'17</h5>
-                <h5>AJ Malkani: A'18</h5>
-                <h5>Alexander Ray: A'17</br></br></h5>
+                <h4>Alan Bartels: A'17</h4>
+                <h4>Matthew Epstein: E'18</h4>
+                <h4>Nicholas Fallah: A'18</h4>
+                <h4>Benjamin Francis: E'18</h4>
+                <h4>Daniel Kimmick: A'18</h4>
+                <h4>Dan Lang: E'17</h4>
+                <h4>Kevin Lim: A'17</h4>
+                <h4>AJ Malkani: A'18</h4>
+                <h4>Alexander Ray: A'17</h4>
             </div>
             <div id="t6Text">
-                <h5>Will Atkins: A'19</h5>
-                <h5>Jack Barral: A'18</h5>
-                <h5>Sayak Chatterjee: A'18</h5>
-                <h5>Harrison Downs: A'19</h5>
-                <h5>Doug Goldwater: A'19</h5>
-                <h5>Ryan Gossart: A'19</h5>
-                <h5>Daniel Knight: A'19</h5>
-                <h5>Dan McKeen: E'19</h5>
-                <h5>Jacob Ruttenburg: E'19</h5>
-                <h5>Eran Sabaner: A'19</h5>
-                <h5>Sameer Sarma: E'19</h5>
-                <h5>Jonah Schwartz: E'19</h5>
-                <h5>David Stern: A'18</h5>
-                <h5>George Triantafillou: A'19</h5>
-                <h5>Aaron Wong: A'19</br></br></h5>
+                <h4>Will Atkins: A'19</h4>
+                <h4>Jack Barral: A'18</h4>
+                <h4>Sayak Chatterjee: A'18</h4>
+                <h4>Harrison Downs: A'19</h4>
+                <h4>Doug Goldwater: A'19</h4>
+                <h4>Ryan Gossart: A'19</h4>
+                <h4>Daniel Knight: A'19</h4>
+                <h4>Dan McKeen: E'19</h4>
+                <h4>Jacob Ruttenburg: E'19</h4>
+                <h4>Eran Sabaner: A'19</h4>
+                <h4>Sameer Sarma: E'19</h4>
+                <h4>Jonah Schwartz: E'19</h4>
+                <h4>David Stern: A'18</h4>
+                <h4>George Triantafillou: A'19</h4>
+                <h4>Aaron Wong: A'19</h4>
             </div>
         </div>
-        <div class="contact panel-footer">
+
+        <div class="footer">
                     <a href="https://www.twitter.com/zeebforceone"><img src="images/twitter.png" alt="twitter"/></a>
                     <a href="https://www.facebook.com/pages/ZBT-Omicron-Tufts/308573335871570"><img src="images/fb.png" alt="facebook"/></a>
                     <a href="mailto:president@zbtomicron.com"><img src="images/email.png" alt="email"/></a>
-                    <p style="color: black">ZBT Omicron Tufts, 126 Packard Ave, Medford MA 02155<br><a href="http://jasonbrillon.com">(C) ZBT Omicron, 2016</a></p>
-        </div></div>
+                    <p>ZBT Omicron Tufts, 126 Packard Ave, Medford MA 02155</p>
+                    <p><a href="http://jasonbrillon.com">(C) ZBT Omicron, 2016</a></p>
+        </div>
+
+
+        <script src="jquery-3.1.0.min.js"></script>
+        <script src="jquery.easing.min.js"></script>
+        <script src="resizing.js"></script>
     </body>
 </html>

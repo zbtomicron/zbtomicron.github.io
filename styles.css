@@ -1,128 +1,31 @@
-/* FONTS */
+/* ==========================================================================*/
+/*             Created by Jason Brillon - last modified: 25/7/16             */
+/* ==========================================================================*/
+
+/* GENERAL */
 @font-face {
 	font-family: corbert;
 	src: url('corbert.otf');
 }
 
-
-/* GENERAL THINGS */
 body {
+	margin: 0;
 	font-family: corbert;
 	background: #eee;
 	text-align: center;
 }
 
-a:hover {
-	text-decoration: none;
+h2, h3, h4, h5, p {
+	margin: 10px;
 }
 
-.no-overflow {
-	overflow-x: hidden;
-}
-
-h1 {
-	font-size: 30px;
-	font-weight: bold;
-}
-
-h4 {
-	font-size: 18px;
-}
-
-h5 {
-	font-size: 17px;
-}
-
-p {
-	font-size: 10px;
-	padding-top: 10px;
-	color: black;
-}
-
-
-/* SECTIONS */
-#brothers li {
+.pointer, li {
 	cursor: pointer;
-	font-size: 18px;
 }
 
-#new, #about, #philanthropy, #recruitment, #brothers {
-	padding: 75px 80px 80px 75px;
-}
+/* ==========================================================================*/
 
-#new {
-	padding-top: 150px;
-}
-
-#about, #recruitment {
-	background-size: cover;
-	background: #ccc;
-}
-
-#philanthropy .row {
-	margin-left: 8%;
-}
-
-#nationals {
-	text-align: center;
-	color: #ccc;
-	background: #000;
-	padding: 13px 26px;
-}
-
-#nationals:hover {
-	color: #ffd700;
-	background: #000080;
-}
-
-#nationals, #nationals:hover {
-	transition: all .3s ease;
-}
-
-#t2Text, #t3Text, #t4Text, #t5Text, #t6Text, #leadership {
-	display: none;
-}
-
-.nb {
-	padding-left: 15%;
-	padding-right: 15%;
-}
-
-.nbbox {
-	cursor: auto;
-	background-image: url(images/nb.png);
-}
-
-
-/* MAIN SLIDESHOW */
-.cycle {
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: top center;
-}
-
-#cycle1 {
-	background-image: url(images/brothers.png);
-	opacity: 1;
-}
-
-#cycle2 {
-	background-image: url(images/gotb.png);
-	opacity: 0;
-}
-
-#cycle3 {
-	background-image: url(images/formal.png);
-	opacity: 0;
-}
-
-#cycle4 {
-	background-image: url(images/betaMus.png);
-	opacity: 0;
-}
-
-
-/* NAV BAR*/
+/* HEADER */
 .header {
 	background: #fff;
 	padding-bottom: 30px;
@@ -133,155 +36,171 @@ p {
 
 .logo {
 	position: absolute;
-	left: 50%;
 	width: 250px;
-	height: 100px;
 	margin-left: -125px;
 }
 
 .nologo {
 	margin-top: -90px;
-	transition: all 1s ease;
 }
 
 .nologo > .logo {
 	opacity: 0;
-	transition: all 1s ease;
 }
 
 .showlogo {
 	margin-top: 0px;
-	transition: all 1s ease;
 }
 
 .showlogo > .logo {
 	opacity: 1;
+}
+
+.nologo, .nologo > .logo, .showlogo, .showlogo > .logo {
 	transition: all 1s ease;
 }
 
 .crest {
 	position: absolute;
-	left: 50%;
 	width: 50px;
-	height: 50px;
 	margin-left: -25px;
-	border-bottom: 30px white;
-	border-bottom-left-radius: 100%;
-	border-bottom-right-radius: 100%;
+	border-radius: 100%;
 }
 
 a, a:visited {
 	color: #000080;
+	text-decoration: none;
 }
 
-.nav a:hover {
-	color: #ffd700;
-}
-
-.nav .hover:hover {
-	color: #ffd700;
-}
-
-.panel-footer {
-	background-color: white;
+.nav a:hover, .active {
+	color: #ffd700 !important;
 }
 
 .nav {
 	padding-top: 100px;
-	text-align: center;
 	padding-right: 40px;
 }
 
-.nav ul li, #brothers ul li {
-	display: inline-block;
+li {
+	display: inline;
 	padding-left: 10px;
 	padding-right: 10px;
-	font-size: 20px;
 }
 
+/* ==========================================================================*/
+
+/* MAIN SLIDESHOW */
+.background {
+	height: 100vh;
+	width: 100%;
+	background-image: url(images/brothers.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+#bg2, #bg3, #bg4 {
+	opacity: 0;
+	position: absolute;
+	margin-top: -100vh;
+}
+
+#bg2 {
+	background-image: url(images/graduation.png);
+}
+
+#bg3 {
+	background-image: url(images/betaMus.png);
+}
+
+#bg4 {
+	background-image: url(images/formal.png);
+}
+
+/* ==========================================================================*/
+
+/* SECTIONS */
+.section {
+	padding: 75px 80px;
+}
+
+.section a:hover {
+	color: #3498db;
+}
+
+#about, #recruitment {
+	background: #ccc;
+}
+
+#about h4, #recruitment h4 {
+	margin-bottom: 30px;
+}
+
+#about #newsletter {
+	color: #ccc;
+	background: #000;
+	padding: 13px 26px;
+}
+
+#about #newsletter:hover {
+	color: #ffd700;
+	background: #000080;
+}
+
+#brothers li:hover, #brothers #t1 {
+	text-decoration: underline;
+}
+
+#brothers div:not(#t1Text) {
+	display: none;
+}
+
+#philanthropy .box {
+	vertical-align: top;
+	background-color: #ccc;
+	display: inline-block;
+	margin: 2px;
+	width: 20vw;
+	height: 20vw;
+	background-size: 20vw;
+	overflow: scroll;
+}
+
+#philanthropy .hidden {
+	display: none !important;
+}
+
+/* ==========================================================================*/
 
 /* TOGGLE BOXES */
-.box {
-	height: 300px;
-	width: 300px;
-	cursor: pointer;
-	margin-bottom: 10px;
-}
-
-.comm, .mtw, .bbbs, .rfl, .gotb, .tgb, .comm:hover, .mtw:hover, .bbbs:hover, .rfl:hover, .gotb:hover, .tgb:hover {
-	margin-right: 10px;
-	transition: background-image .3s ease;
-}
-
-.gotb {
+#gotb {
 	background-image: url(images/gontb.png);
 }
 
-.gotb:hover {
+#gotb:hover {
 	background-image: url(images/gotb1.png);
 }
 
-.bbbs {
+#bbbs {
 	background-image: url(images/bbbs.png);
 }
 
-.bbbs:hover {
+#bbbs:hover {
 	background-image: url(images/bbbs1.png);
 }
 
-.rfl {
+#rfl {
 	background-image: url(images/rfl.png);
 }
 
-.rfl:hover {
+#rfl:hover {
 	background-image: url(images/rfl1.png);
 }
 
-.tgb {
-	background-image: url(images/tgb.png);
-}
+/* ==========================================================================*/
 
-.tgb:hover {
-	background-image: url(images/tgb1.png);
-}
-
-.comm {
-	background-image: url(images/comm.png);
-}
-
-.comm:hover {
-	background-image: url(images/comm1.png);
-}
-
-.mtw {
-	background-image: url(images/mtw.png);
-}
-
-.mtw:hover {
-	background-image: url(images/mtw1.png);
-}
-
-#Box1, #Box2, #Box3, #Box4, #Box5, #Box6 {
-	display: none;
-	position: absolute;
-	z-index: 9999;
-	margin: auto;
-	background-color: rgba(245, 245, 245, 1);
-	color: #000;
-	text-align: center;
-	padding: 20px;
-}
-
-.exit {
-	margin-left: 96%;
-	width: 50px;
-	height: 50px;
-	text-align: right;
-	font-size: 50px;
-	border: none;
-	background-color: rgba(245, 245, 245, 1);
-}
-
-.pic {
-	border: none;
+/* FOOTER*/
+.footer {
+	background-color: white;
+	padding: 20px 0 10px 0 ;
 }
